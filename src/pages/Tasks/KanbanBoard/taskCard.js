@@ -27,6 +27,8 @@ const CardTaskBox = props => {
         const client = new APIClient();
 
         await client.delete(`/tasks?id=${data.id}`).finally(() => updateBoards());
+
+        setmodal_delete(false);
     };
 
     return (
@@ -232,17 +234,6 @@ const CardTaskBox = props => {
                             </Card>
                         </div>
                     </SimpleBar>
-                    <div className="my-3">
-                        <Button
-                            color="info"
-                            className="btn-soft-info w-100"
-                            onClick={() => {
-                                props.toggleNewTaskModal();
-                            }}
-                        >
-                            Add More
-                        </Button>
-                    </div>
                 </div>
             </div>
 
