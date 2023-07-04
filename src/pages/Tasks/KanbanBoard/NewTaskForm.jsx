@@ -46,7 +46,7 @@ const users = [
     },
 ];
 
-export const NewTaskForm = ({ onClose, updateBoards }) => {
+export const NewTaskForm = ({ id, onClose, updateBoards }) => {
     const [task, setTask] = useState({
         name: '',
         title: '',
@@ -58,8 +58,8 @@ export const NewTaskForm = ({ onClose, updateBoards }) => {
     });
 
     /*
-    Также кастомный сабмит. Пытался использовать формик, но он кусок говна. Мне не понравилось :).
-    В целом после сабмита я просто пробегаю по всем значениям и добавляю в форм дату, потому что писать огромный обработчик для картинок это ужас.
+        Также кастомный сабмит. Пытался использовать формик, но он кусок говна. Мне не понравилось :).
+        В целом после сабмита я просто пробегаю по всем значениям и добавляю в форм дату, потому что писать огромный обработчик для картинок это ужас.
     */
 
     const onSubmit = async event => {
@@ -73,6 +73,8 @@ export const NewTaskForm = ({ onClose, updateBoards }) => {
 
             formData.append(keys[i], values[i]);
         }
+
+        formData.append('boardId', id);
 
         const client = new APIClient();
 
