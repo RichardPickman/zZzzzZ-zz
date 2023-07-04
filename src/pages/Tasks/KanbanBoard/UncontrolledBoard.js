@@ -1,6 +1,6 @@
 import React from 'react';
 import Board from '@lourenci/react-kanban';
-import { Row, Col } from 'reactstrap';
+import { Row, Col, Button } from 'reactstrap';
 import CardTaskBox from './taskCard';
 import RenderCardTitle from './HeaderComponets';
 
@@ -13,12 +13,23 @@ const UncontrolledBoard = props => {
                 <Col>
                     <Board
                         initialBoard={content}
-                        renderColumnHeader={({ name, badge, badgeClass }) => (
-                            <RenderCardTitle
-                                name={name}
-                                badge={badge}
-                                badgeClass={badgeClass}
-                            />
+                        renderColumnHeader={({ id, name, badge, badgeClass }) => (
+                            <Col className="me-4">
+                                <RenderCardTitle
+                                    name={name}
+                                    badge={badge}
+                                    badgeClass={badgeClass}
+                                />
+                                <Button
+                                    color="info"
+                                    className="btn-soft-info w-100 p-r-2"
+                                    onClick={() => {
+                                        props.toggleNewTaskModal(id);
+                                    }}
+                                >
+                                    Add More
+                                </Button>
+                            </Col>
                         )}
                         renderCard={(data, { dragging }) => (
                             <CardTaskBox
