@@ -1,5 +1,4 @@
 import React, { useCallback, useLayoutEffect, useState } from 'react';
-import SimpleBar from 'simplebar-react';
 import { Button, Card, CardBody, Col, Container, Form, Input, Label, Modal, Row } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import { map } from 'lodash';
@@ -7,12 +6,9 @@ import UncontrolledBoard from './UncontrolledBoard';
 import BreadCrumb from '../../../Components/Common/BreadCrumb';
 
 // Import Images
-import avatar1 from '../../../assets/images/users/avatar-1.jpg';
 import avatar2 from '../../../assets/images/users/avatar-2.jpg';
 import avatar3 from '../../../assets/images/users/avatar-3.jpg';
 import avatar5 from '../../../assets/images/users/avatar-5.jpg';
-import avatar6 from '../../../assets/images/users/avatar-6.jpg';
-import avatar7 from '../../../assets/images/users/avatar-7.jpg';
 import avatar8 from '../../../assets/images/users/avatar-8.jpg';
 import avatar10 from '../../../assets/images/users/avatar-10.jpg';
 import { APIClient } from '../../../helpers/api_helper';
@@ -30,9 +26,9 @@ const KanbanBoard = () => {
         setmodal_member(!modal_member);
     };
 
-    const [modal_newTask, setmodal_newTask] = useState(false);
-    const tog_newTask = () => {
-        setmodal_newTask(!modal_newTask);
+    const [newTaskModal, setNewTaskModal] = useState({ id: '', isOpen: false });
+    const tog_newTask = id => {
+        setNewTaskModal({ id: id || '', isOpen: !newTaskModal.isOpen });
     };
 
     const [modal_delete, setmodal_delete] = useState(false);
@@ -58,8 +54,6 @@ const KanbanBoard = () => {
     useLayoutEffect(() => {
         updateBoards();
     }, [updateBoards]);
-
-    data.length = Math.min(data.length, 6);
 
     document.title = 'Kanban Board | Velzon - React Admin & Dashboard Template';
     return (
@@ -373,7 +367,7 @@ const KanbanBoard = () => {
                     {/* Create New Task */}
                     <Modal
                         size="lg"
-                        isOpen={modal_newTask}
+                        isOpen={newTaskModal.isOpen}
                         toggle={() => {
                             tog_newTask();
                         }}
@@ -382,8 +376,9 @@ const KanbanBoard = () => {
                         className="border-0"
                     >
                         <NewTaskForm
-                            onClose={() => setmodal_newTask(false)}
+                            onClose={() => tog_newTask()}
                             updateBoards={updateBoards}
+                            id={newTaskModal.id}
                         />
                     </Modal>
 
