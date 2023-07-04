@@ -91,7 +91,7 @@ const KanbanBoard = () => {
                         </CardBody>
                     </Card>
 
-                    <UncontrolledBoard board={{ columns: data }} content={kanbanBoardData} />
+                    <UncontrolledBoard board={{ columns: data }} content={kanbanBoardData} toggleNewTaskModal={tog_newTask} />
 
                     {/* Add Member */}
                     <Modal id="addmemberModal" isOpen={modal_member} toggle={() => { tog_member(); }} className="border-0">

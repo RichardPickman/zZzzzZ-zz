@@ -8,7 +8,7 @@ import logoDark from "../assets/images/logo-dark.png";
 import logoLight from "../assets/images/logo-light.png";
 
 //import Components
-import SearchOption from '../Components/Common/SearchOption';
+// import SearchOption from '../Components/Common/SearchOption';
 import LanguageDropdown from '../Components/Common/LanguageDropdown';
 import WebAppsDropdown from '../Components/Common/WebAppsDropdown';
 import MyCartDropdown from '../Components/Common/MyCartDropdown';
@@ -18,10 +18,6 @@ import ProfileDropdown from '../Components/Common/ProfileDropdown';
 import LightDark from '../Components/Common/LightDark';
 
 const Header = ({ onChangeLayoutMode, layoutModeType, headerClass }) => {
-    const [search, setSearch] = useState(false);
-    const toogleSearch = () => {
-        setSearch(!search);
-    };
 
     const toogleMenuBtn = () => {
         var windowSize = document.documentElement.clientWidth;
@@ -92,29 +88,9 @@ const Header = ({ onChangeLayoutMode, layoutModeType, headerClass }) => {
                                 </span>
                             </button>
 
-
-                            <SearchOption />
                         </div>
 
                         <div className="d-flex align-items-center">
-
-                            <Dropdown isOpen={search} toggle={toogleSearch} className="d-md-none topbar-head-dropdown header-item">
-                                <DropdownToggle type="button" tag="button" className="btn btn-icon btn-topbar btn-ghost-secondary rounded-circle">
-                                    <i className="bx bx-search fs-22"></i>
-                                </DropdownToggle>
-                                <DropdownMenu className="dropdown-menu-lg dropdown-menu-end p-0">
-                                    <Form className="p-3">
-                                        <div className="form-group m-0">
-                                            <div className="input-group">
-                                                <input type="text" className="form-control" placeholder="Search ..."
-                                                    aria-label="Recipient's username" />
-                                                <button className="btn btn-primary" type="submit"><i
-                                                    className="mdi mdi-magnify"></i></button>
-                                            </div>
-                                        </div>
-                                    </Form>
-                                </DropdownMenu>
-                            </Dropdown>
 
                             {/* LanguageDropdown */}
                             <LanguageDropdown />

@@ -7,7 +7,7 @@ import './assets/scss/themes.scss';
 import Route from './Routes';
 
 // Import Firebase Configuration file
-// import { initFirebaseBackend } from "./helpers/firebase_helper";
+import { initFirebaseBackend } from "./helpers/firebase_helper";
 
 // Fake Backend 
 import fakeBackend from "./helpers/AuthType/fakeBackend";

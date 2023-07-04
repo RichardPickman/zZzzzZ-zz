@@ -1,0 +1,15 @@
+{
+  "columns": [
+    {
+      "id": 1,
+      "title": "Column 1",
+      "cards": [
+        {
+          "id": 1,
+          "title": "Card 1",
+          "description": "Description of card 1"
+        }
+      ]
+    }
+  ]
+}

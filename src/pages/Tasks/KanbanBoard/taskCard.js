@@ -95,9 +95,9 @@ const CardTaskBox = props => {
                             </Card>
                         </div>
                     </SimpleBar>
-                    {/* <div className="my-3">
-                        <Button color="info" className="btn-soft-info w-100" onClick={() => { tog_newTask(); }}>Add More</Button>
-                    </div> */}
+                    <div className="my-3">
+                        <Button color="info" className="btn-soft-info w-100" onClick={() => { props.toggleNewTaskModal(); }}>Add More</Button>
+                    </div>
                 </div>
             </div>
 

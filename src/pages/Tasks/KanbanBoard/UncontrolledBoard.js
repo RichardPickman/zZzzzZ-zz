@@ -16,7 +16,7 @@ const UncontrolledBoard = props => {
               <RenderCardTitle name={name} badge={badge} badgeClass={badgeClass} />
             )}
             renderCard={(data, { dragging }) => (
-              <CardTaskBox data={data} dragging={dragging}>
+              <CardTaskBox data={data} dragging={dragging} toggleNewTaskModal={props.toggleNewTaskModal}>
                 {data}
               </CardTaskBox>
             )}
