@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import PropTypes from "prop-types";
-import { withRouter } from "react-router-dom";
-
+import PropTypes from 'prop-types';
+import { withRouter } from 'react-router-dom';
 
 //import Components
 import Header from './Header';
@@ -18,15 +17,14 @@ import {
     changeTopbarTheme,
     changeLeftsidebarSizeType,
     changeLeftsidebarViewType,
-    changeSidebarImageType
-} from "../store/actions";
+    changeSidebarImageType,
+} from '../store/actions';
 
 //redux
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector, useDispatch } from 'react-redux';
 
-
-const Layout = (props) => {
-    const [headerClass, setHeaderClass] = useState("");
+const Layout = props => {
+    const [headerClass, setHeaderClass] = useState('');
     const dispatch = useDispatch();
     const {
         layoutType,
@@ -37,7 +35,7 @@ const Layout = (props) => {
         topbarThemeType,
         leftsidbarSizeType,
         leftSidebarViewType,
-        leftSidebarImageType
+        leftSidebarImageType,
     } = useSelector(state => ({
         layoutType: state.Layout.layoutType,
         leftSidebarType: state.Layout.leftSidebarType,
@@ -64,7 +62,7 @@ const Layout = (props) => {
             leftsidbarSizeType ||
             leftSidebarViewType ||
             leftSidebarImageType
-            ) {
+        ) {
             dispatch(changeLeftsidebarViewType(leftSidebarViewType));
             dispatch(changeLeftsidebarSizeType(leftsidbarSizeType));
             dispatch(changeSidebarTheme(leftSidebarType));
@@ -73,9 +71,10 @@ const Layout = (props) => {
             dispatch(changeLayoutPosition(layoutPositionType));
             dispatch(changeTopbarTheme(topbarThemeType));
             dispatch(changeLayout(layoutType));
-            dispatch(changeSidebarImageType(leftSidebarImageType))
+            dispatch(changeSidebarImageType(leftSidebarImageType));
         }
-    }, [layoutType,
+    }, [
+        layoutType,
         leftSidebarType,
         layoutModeType,
         layoutWidthType,
@@ -84,27 +83,28 @@ const Layout = (props) => {
         leftsidbarSizeType,
         leftSidebarViewType,
         leftSidebarImageType,
-        dispatch]);
+        dispatch,
+    ]);
     /*
     call dark/light mode
     */
-    const onChangeLayoutMode = (value) => {
+    const onChangeLayoutMode = value => {
         if (changeLayoutMode) {
             dispatch(changeLayoutMode(value));
         }
     };
-    
-    // class add remove in header 
+
+    // class add remove in header
     useEffect(() => {
-        window.addEventListener("scroll", scrollNavigation, true);
+        window.addEventListener('scroll', scrollNavigation, true);
     });
 
     function scrollNavigation() {
         var scrollup = document.documentElement.scrollTop;
         if (scrollup > 50) {
-            setHeaderClass("topbar-shadow");
+            setHeaderClass('topbar-shadow');
         } else {
-            setHeaderClass("");
+            setHeaderClass('');
         }
     }
 
@@ -114,14 +114,18 @@ const Layout = (props) => {
                 <Header
                     headerClass={headerClass}
                     layoutModeType={layoutModeType}
-                    onChangeLayoutMode={onChangeLayoutMode} />
-                <div className="main-content">{props.children}
+                    onChangeLayoutMode={onChangeLayoutMode}
+                />
+                <div
+                    className="main-content"
+                    style={{ margin: 0 }}
+                >
+                    {props.children}
                     <Footer />
                 </div>
             </div>
             <RightSidebar />
         </React.Fragment>
-
     );
 };
 
