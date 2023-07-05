@@ -14,7 +14,6 @@
                     "progressBar": "15%",
                     "date": "03 Jan, 2022",
                     "progressBarColor": "danger",
-                    "progressBarText": "secondary",
                     "tags": [
                         {
                             "tag": "Admin"
@@ -30,10 +29,7 @@
                             "img": "avatar5"
                         }
                     ],
-                    "view": "04",
-                    "message": "19",
-                    "file": "02",
-                    "isTaskId": true
+                    "view": "04"
                 },
                 {
                     "id": 12,
@@ -66,9 +62,7 @@
                             "img": "avatar1"
                         }
                     ],
-                    "view": "14",
-                    "message": "32",
-                    "file": "05"
+                    "view": "14"
                 }
             ]
         },
@@ -106,9 +100,7 @@
                             "img": "avatar2"
                         }
                     ],
-                    "view": "13",
-                    "message": "52",
-                    "file": "17"
+                    "view": "13"
                 },
                 {
                     "id": 22,
@@ -134,9 +126,7 @@
                             "img": "avatar8"
                         }
                     ],
-                    "view": "24",
-                    "message": "10",
-                    "file": "10"
+                    "view": "24"
                 }
             ]
         },
@@ -180,9 +170,6 @@
                         }
                     ],
                     "view": "24",
-                    "message": "10",
-                    "file": "10",
-                    "isTaskIdHeader": true,
                     "isProgessBarFooter": true
                 },
                 {
@@ -216,9 +203,6 @@
                         }
                     ],
                     "view": "64",
-                    "message": "35",
-                    "file": "23",
-                    "isTaskIdHeader": true,
                     "isProgessBarFooter": true
                 }
             ]
@@ -249,10 +233,7 @@
                         }
                     ],
                     "view": "08",
-                    "message": "54",
-                    "file": "28",
                     "bgImage": "bgImage1",
-                    "isTaskIdHeader": true,
                     "isProgessBarFooter": true
                 },
                 {
@@ -282,9 +263,6 @@
                         }
                     ],
                     "view": "14",
-                    "message": "31",
-                    "file": "07",
-                    "isTaskIdHeader": true,
                     "isProgessBarFooter": true
                 },
                 {
@@ -325,9 +303,6 @@
                         }
                     ],
                     "view": "12",
-                    "message": "74",
-                    "file": "37",
-                    "isTaskIdHeader": true,
                     "isProgessBarFooter": true
                 }
             ]
@@ -346,7 +321,6 @@
                     "progressBar": "35%",
                     "date": "3 Day",
                     "progressBarColor": "danger",
-                    "progressBarText": "info",
                     "tags": [
                         {
                             "tag": "Design"
@@ -369,10 +343,7 @@
                             "img": "avatar6"
                         }
                     ],
-                    "view": "24",
-                    "message": "10",
-                    "file": "10",
-                    "isTaskId": true
+                    "view": "24"
                 }
             ]
         },
@@ -409,14 +380,59 @@
                         }
                     ],
                     "view": "11",
-                    "message": "26",
-                    "file": "30",
                     "bgImage": "bgImage2",
-                    "isTaskIdHeader": true,
                     "isProgessBarFooter": true
                 }
             ]
+        },
+        {
+            "name": "123",
+            "badge": 1,
+            "badgeClass": "success",
+            "tasks": [],
+            "id": 8
         }
     ],
-    "tasks": []
+    "tasks": [
+        {
+            "id": 11,
+            "boardId": 1,
+            "title": "Profile Page Satructure",
+            "desc": "Profile Page means a web page accessible to the public or to guests.",
+            "progressBar": "15%",
+            "date": "03 Jan, 2022",
+            "progressBarColor": "danger",
+            "tags": "admin user example",
+            "members": [
+                {
+                    "id": 1,
+                    "user": "Anna",
+                    "position": "UX/UI Designer developer",
+                    "img": ""
+                },
+                {
+                    "id": 2,
+                    "user": "Piotrek",
+                    "position": "Fullstack developer",
+                    "img": ""
+                }
+            ],
+            "view": "04",
+            "comments": [
+                {
+                    "image": "",
+                    "name": "Joseph Parker",
+                    "time": "20 Dec 2021 - 05:47AM",
+                    "replies": [
+                        {
+                            "image": "",
+                            "name": "Tonya Noble",
+                            "time": "22 Dec 2021 - 02:32PM",
+                            "text": "Please be sure to check your Spam mailbox to see if your email filters have identified the email from Dell as spam."
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
 }
