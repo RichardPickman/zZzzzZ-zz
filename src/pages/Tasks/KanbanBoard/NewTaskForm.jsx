@@ -68,7 +68,7 @@ export const NewTaskForm = ({ id, onClose, updateBoards }) => {
         const client = new APIClient();
 
         try {
-            await client.create('/tasks', task);
+            await client.create('/tasks', { ...task, boardId: id });
 
             console.log('Task create successfully');
         } catch (e) {
