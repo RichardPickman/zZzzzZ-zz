@@ -50,7 +50,7 @@ export const NewTaskForm = ({ id, onClose, updateBoards }) => {
     const [task, setTask] = useState({
         name: '',
         title: '',
-        description: '',
+        desc: '',
         members: [],
         date: '',
         tag: '',
@@ -170,7 +170,7 @@ export const NewTaskForm = ({ id, onClose, updateBoards }) => {
                                 className="form-control"
                                 id="task-description"
                                 rows="3"
-                                onChange={event => setValue('description', event.target.value)}
+                                onChange={event => setValue('desc', event.target.value)}
                             ></textarea>
                         </Col>
                         <Col lg={12}>
