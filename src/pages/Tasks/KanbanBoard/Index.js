@@ -1,4 +1,4 @@
-import React, { useCallback, useLayoutEffect, useState } from 'react';
+import React, { useCallback, useLayoutEffect, useMemo, useState } from 'react';
 import { Button, Card, CardBody, Col, Container, Form, Input, Label, Modal, Row } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import { map } from 'lodash';
@@ -42,7 +42,7 @@ const KanbanBoard = () => {
     // Данная функция отправляет Гет запрос в базу и потом сетает стейт для борды.
     const updateBoards = useCallback(async () => {
         const client = new APIClient();
-        const response = await client.get(`/boards`);
+        const response = await client.get('/boards');
 
         const columns = map(response, task => ({ ...task, cards: task.tasks }));
 
@@ -54,6 +54,20 @@ const KanbanBoard = () => {
     useLayoutEffect(() => {
         updateBoards();
     }, [updateBoards]);
+
+    const FixedBoard = () =>
+        useMemo(
+            () => (
+                <UncontrolledBoard
+                    board={{ columns: data }}
+                    content={boards}
+                    updateBoards={updateBoards}
+                    onBoardModalClose={tog_board}
+                    toggleNewTaskModal={tog_newTask}
+                />
+            ),
+            []
+        );
 
     document.title = 'Kanban Board | Velzon - React Admin & Dashboard Template';
     return (
@@ -163,14 +177,7 @@ const KanbanBoard = () => {
                         </CardBody>
                     </Card>
 
-                    {data.length === 0 ? null : (
-                        <UncontrolledBoard
-                            board={{ columns: data }}
-                            content={boards}
-                            updateBoards={updateBoards}
-                            toggleNewTaskModal={tog_newTask}
-                        />
-                    )}
+                    <FixedBoard />
 
                     {/* Add Member */}
                     <Modal
