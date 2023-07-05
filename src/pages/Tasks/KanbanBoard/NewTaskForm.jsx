@@ -55,6 +55,7 @@ export const NewTaskForm = ({ id, onClose, updateBoards }) => {
         date: '',
         tag: '',
         progress: '',
+        progressBarColor: 'info',
     });
 
     /*
@@ -77,6 +78,18 @@ export const NewTaskForm = ({ id, onClose, updateBoards }) => {
             onClose();
             updateBoards();
         }
+    };
+
+    // Добавил обработку выбора приоритета таски.
+    const handlePriorityChange = event => {
+        const key = event.target.value;
+        const priorityMap = {
+            low: 'success',
+            medium: 'warning',
+            high: 'danger',
+        };
+
+        setValue('progressBarColor', priorityMap[key]);
     };
 
     /*
@@ -213,6 +226,27 @@ export const NewTaskForm = ({ id, onClose, updateBoards }) => {
                                     ))}
                                 </ul>
                             </SimpleBar>
+                        </Col>
+                        <Col lg={12}>
+                            <Label
+                                htmlFor="tasks-priority"
+                                className="form-label"
+                            >
+                                Priority
+                            </Label>
+                            <select
+                                id="tasks-priority"
+                                className="form-control"
+                                name="choices-single-default"
+                                data-choices
+                                data-choices-search-false
+                                onChange={handlePriorityChange}
+                            >
+                                <option value="default">Default</option>
+                                <option value="low">Low</option>
+                                <option value="medium">Medium</option>
+                                <option value="high">High</option>
+                            </select>
                         </Col>
                         <Col lg={4}>
                             <Label
