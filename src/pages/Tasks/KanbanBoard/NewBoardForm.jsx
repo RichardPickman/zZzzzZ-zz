@@ -4,7 +4,7 @@ import { APIClient } from '../../../helpers/api_helper';
 
 // Перенес форму создания борды сюда.
 
-export const NewBoardForm = ({ onClose }) => {
+export const NewBoardForm = ({ onClose, updateBoards }) => {
     const [name, setName] = useState('');
 
     // Сделал кастомный сабмит, потому как нет эндпоинта
@@ -19,6 +19,9 @@ export const NewBoardForm = ({ onClose }) => {
             badgeClass: 'success',
             tasks: [],
         });
+
+        updateBoards();
+        onClose();
     };
 
     return (
