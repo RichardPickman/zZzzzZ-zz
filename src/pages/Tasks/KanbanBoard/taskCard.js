@@ -47,21 +47,12 @@ const CardTaskBox = props => {
                                 <CardBody>
                                     <div className="d-flex mb-2">
                                         <h6 className="fs-15 mb-0 flex-grow-1 text-truncate task-title">
-                                            {data.isTaskIdHeader ? (
-                                                <Link
-                                                    to="#"
-                                                    className="text-muted fw-medium fs-14 flex-grow-1"
-                                                >
-                                                    {data.taskId}
-                                                </Link>
-                                            ) : (
-                                                <Link
-                                                    to="/apps-tasks-details"
-                                                    className="d-block"
-                                                >
-                                                    {data.title}
-                                                </Link>
-                                            )}
+                                            <Link
+                                                to={`/apps-tasks-details/${data.id}`}
+                                                className="d-block"
+                                            >
+                                                {data.title}
+                                            </Link>
                                         </h6>
                                         <UncontrolledDropdown direction="start">
                                             <DropdownToggle
@@ -96,22 +87,9 @@ const CardTaskBox = props => {
                                         </UncontrolledDropdown>
                                     </div>
 
-                                    {data.isTaskIdHeader && (
-                                        <h6 className="fs-15 text-truncate">
-                                            <Link to="/apps-tasks-details">{data.title}</Link>
-                                        </h6>
-                                    )}
+                                    <p className="text-muted">{data.desc}</p>
 
-                                    {data.bgImage ? (
-                                        <div
-                                            className="tasks-img rounded"
-                                            style={{ background: `url(${data.bgImage})` }}
-                                        ></div>
-                                    ) : (
-                                        <p className="text-muted">{data.desc}</p>
-                                    )}
-
-                                    {data.isTaskId && (
+                                    {data.progressBar && (
                                         <div className="mb-3">
                                             <div className="d-flex mb-1">
                                                 <div className="flex-grow-1">
@@ -144,6 +122,7 @@ const CardTaskBox = props => {
                                             </div>
                                         </div>
                                     )}
+
                                     <div className="d-flex align-items-center">
                                         <div className="flex-grow-1">
                                             {map(data.tags, (data, key) => (
@@ -174,17 +153,14 @@ const CardTaskBox = props => {
                                         </div>
                                     </div>
                                 </CardBody>
+
                                 <div className="card-footer border-top-dashed">
                                     <div className="d-flex">
                                         <div className="flex-grow-1">
-                                            {data.isTaskId ? (
-                                                <h6 className="text-muted mb-0">{data.taskId}</h6>
-                                            ) : (
-                                                <span className="text-muted">
-                                                    <i className="ri-time-line align-bottom"></i>{' '}
-                                                    {data.date}{' '}
-                                                </span>
-                                            )}
+                                            <span className="text-muted">
+                                                <i className="ri-time-line align-bottom"></i>{' '}
+                                                {data.date}{' '}
+                                            </span>
                                         </div>
                                         <div className="flex-shrink-0">
                                             <ul className="link-inline mb-0">
@@ -219,18 +195,6 @@ const CardTaskBox = props => {
                                         </div>
                                     </div>
                                 </div>
-                                {data.isProgessBarFooter && (
-                                    <div className="progress progress-sm">
-                                        <div
-                                            className={'progress-bar bg-' + data.progressBarColor}
-                                            role="progressbar"
-                                            style={{ width: data.progressBar }}
-                                            aria-valuenow="55"
-                                            aria-valuemin="0"
-                                            aria-valuemax="100"
-                                        ></div>
-                                    </div>
-                                )}
                             </Card>
                         </div>
                     </SimpleBar>
