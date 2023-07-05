@@ -65,21 +65,10 @@ export const NewTaskForm = ({ id, onClose, updateBoards }) => {
     const onSubmit = async event => {
         event.preventDefault();
 
-        const formData = new FormData();
-
-        for (let i = 0; i < Object.keys(task).length; i++) {
-            const keys = Object.keys(task);
-            const values = Object.values(task);
-
-            formData.append(keys[i], values[i]);
-        }
-
-        formData.append('boardId', id);
-
         const client = new APIClient();
 
         try {
-            await client.create('/tasks', formData);
+            await client.create('/tasks', task);
 
             console.log('Task create successfully');
         } catch (e) {
@@ -186,20 +175,6 @@ export const NewTaskForm = ({ id, onClose, updateBoards }) => {
                                 rows="3"
                                 onChange={event => setValue('description', event.target.value)}
                             ></textarea>
-                        </Col>
-                        <Col lg={12}>
-                            <Label
-                                htmlFor="formFile"
-                                className="form-label"
-                            >
-                                Tasks Images
-                            </Label>
-                            <Input
-                                className="form-control"
-                                type="file"
-                                id="formFile"
-                                onChange={event => setValue('images', getImages(event))}
-                            />
                         </Col>
                         <Col lg={12}>
                             <Label
