@@ -1,37 +1,33 @@
-import React from "react";
-import { Redirect } from "react-router-dom";
-
+import React from 'react';
+import { Redirect } from 'react-router-dom';
 
 //Calendar
 // Email box
-import MailInbox from "../pages/EmailInbox";
-import BasicAction from "../pages/Email/EmailTemplates/BasicAction";
-import EcommerceAction from "../pages/Email/EmailTemplates/EcommerceAction";
-
+import MailInbox from '../pages/EmailInbox';
+import BasicAction from '../pages/Email/EmailTemplates/BasicAction';
+import EcommerceAction from '../pages/Email/EmailTemplates/EcommerceAction';
 
 //CHat
-import Chat from "../pages/Chat";
+import Chat from '../pages/Chat';
 
 // Project
-import ProjectList from "../pages/Projects/ProjectList";
-import ProjectOverview from "../pages/Projects/ProjectOverview";
-import CreateProject from "../pages/Projects/CreateProject";
+import ProjectList from '../pages/Projects/ProjectList';
+import ProjectOverview from '../pages/Projects/ProjectOverview';
+import CreateProject from '../pages/Projects/CreateProject';
 
 //Task
-import TaskDetails from "../pages/Tasks/TaskDetails";
-import TaskList from "../pages/Tasks/TaskList";
-import KanbanBoard from "../pages/Tasks/KanbanBoard/Index";
+import TaskDetails from '../pages/Tasks/TaskDetails';
+import TaskList from '../pages/Tasks/TaskList';
+import KanbanBoard from '../pages/Tasks/KanbanBoard/Index';
 
 // Widgets
 import Widgets from '../pages/Widgets/Index';
-
-
 
 //AuthenticationInner pages
 import BasicSignIn from '../pages/AuthenticationInner/Login/BasicSignIn';
 import CoverSignIn from '../pages/AuthenticationInner/Login/CoverSignIn';
 import BasicSignUp from '../pages/AuthenticationInner/Register/BasicSignUp';
-import CoverSignUp from "../pages/AuthenticationInner/Register/CoverSignUp";
+import CoverSignUp from '../pages/AuthenticationInner/Register/CoverSignUp';
 import BasicPasswReset from '../pages/AuthenticationInner/PasswordReset/BasicPasswReset';
 
 import CoverPasswReset from '../pages/AuthenticationInner/PasswordReset/CoverPasswReset';
@@ -48,88 +44,83 @@ import Cover404 from '../pages/AuthenticationInner/Errors/Cover404';
 import Alt404 from '../pages/AuthenticationInner/Errors/Alt404';
 import Error500 from '../pages/AuthenticationInner/Errors/Error500';
 
-import BasicPasswCreate from "../pages/AuthenticationInner/PasswordCreate/BasicPasswCreate";
-import CoverPasswCreate from "../pages/AuthenticationInner/PasswordCreate/CoverPasswCreate";
-import Offlinepage from "../pages/AuthenticationInner/Errors/Offlinepage";
+import BasicPasswCreate from '../pages/AuthenticationInner/PasswordCreate/BasicPasswCreate';
+import CoverPasswCreate from '../pages/AuthenticationInner/PasswordCreate/CoverPasswCreate';
+import Offlinepage from '../pages/AuthenticationInner/Errors/Offlinepage';
 
 //login
-import Login from "../pages/Authentication/Login";
-import ForgetPasswordPage from "../pages/Authentication/ForgetPassword";
-import Logout from "../pages/Authentication/Logout";
-import Register from "../pages/Authentication/Register";
+import Login from '../pages/Authentication/Login';
+import ForgetPasswordPage from '../pages/Authentication/ForgetPassword';
+import Logout from '../pages/Authentication/Logout';
+import Register from '../pages/Authentication/Register';
 
 // User Profile
-import UserProfile from "../pages/Authentication/user-profile";
+import UserProfile from '../pages/Authentication/user-profile';
 
 const authProtectedRoutes = [
-  //Chat
-  { path: "/apps-chat", component: Chat },
+    //Chat
+    { path: '/apps-chat', component: Chat },
 
-  //EMail
-  { path: "/apps-mailbox", component: MailInbox },
-  { path: "/apps-email-basic", component: BasicAction },
-  { path: "/apps-email-ecommerce", component: EcommerceAction },
+    //EMail
+    { path: '/apps-mailbox', component: MailInbox },
+    { path: '/apps-email-basic', component: BasicAction },
+    { path: '/apps-email-ecommerce', component: EcommerceAction },
 
-  //Projects
-  { path: "/apps-projects-list", component: ProjectList },
-  { path: "/apps-projects-overview", component: ProjectOverview },
-  { path: "/apps-projects-create", component: CreateProject },
+    //Projects
+    { path: '/apps-projects-list', component: ProjectList },
+    { path: '/apps-projects-overview', component: ProjectOverview },
+    { path: '/apps-projects-create', component: CreateProject },
 
-  //Task
-  { path: "/apps-tasks-list-view", component: TaskList },
-  { path: "/apps-tasks-details", component: TaskDetails },
-  { path: "/apps-tasks-kanban", component: KanbanBoard },
+    //Task
+    { path: '/apps-tasks-list-view', component: TaskList },
+    { path: '/apps-tasks-details/:id', component: TaskDetails },
+    { path: '/apps-tasks-kanban', component: KanbanBoard },
 
+    // Widgets
+    { path: '/widgets', component: Widgets },
 
-  // Widgets
-  { path: "/widgets", component: Widgets },
+    //User Profile
+    { path: '/profile', component: UserProfile },
 
-
-
-  //User Profile
-  { path: "/profile", component: UserProfile },
-
-  // this route should be at the end of all other routes
-  // eslint-disable-next-line react/display-name
-  {
-    path: "/",
-    exact: true,
-    component: () => <Redirect to="/dashboard" />,
-  },
+    // this route should be at the end of all other routes
+    // eslint-disable-next-line react/display-name
+    {
+        path: '/',
+        exact: true,
+        component: () => <Redirect to="/dashboard" />,
+    },
 ];
 
 const publicRoutes = [
-  // Authentication Page
-  { path: "/logout", component: Logout },
-  { path: "/login", component: Login },
-  { path: "/forgot-password", component: ForgetPasswordPage },
-  { path: "/register", component: Register },
+    // Authentication Page
+    { path: '/logout', component: Logout },
+    { path: '/login', component: Login },
+    { path: '/forgot-password', component: ForgetPasswordPage },
+    { path: '/register', component: Register },
 
-  //AuthenticationInner pages
-  { path: "/auth-signin-basic", component: BasicSignIn },
-  { path: "/auth-signin-cover", component: CoverSignIn },
-  { path: "/auth-signup-basic", component: BasicSignUp },
-  { path: "/auth-signup-cover", component: CoverSignUp },
-  { path: "/auth-pass-reset-basic", component: BasicPasswReset },
-  { path: "/auth-pass-reset-cover", component: CoverPasswReset },
-  { path: "/auth-lockscreen-basic", component: BasicLockScreen },
-  { path: "/auth-lockscreen-cover", component: CoverLockScreen },
-  { path: "/auth-logout-basic", component: BasicLogout },
-  { path: "/auth-logout-cover", component: CoverLogout },
-  { path: "/auth-success-msg-basic", component: BasicSuccessMsg },
-  { path: "/auth-success-msg-cover", component: CoverSuccessMsg },
-  { path: "/auth-twostep-basic", component: BasicTwosVerify },
-  { path: "/auth-twostep-cover", component: CoverTwosVerify },
-  { path: "/auth-404-basic", component: Basic404 },
-  { path: "/auth-404-cover", component: Cover404 },
-  { path: "/auth-404-alt", component: Alt404 },
-  { path: "/auth-500", component: Error500 },
+    //AuthenticationInner pages
+    { path: '/auth-signin-basic', component: BasicSignIn },
+    { path: '/auth-signin-cover', component: CoverSignIn },
+    { path: '/auth-signup-basic', component: BasicSignUp },
+    { path: '/auth-signup-cover', component: CoverSignUp },
+    { path: '/auth-pass-reset-basic', component: BasicPasswReset },
+    { path: '/auth-pass-reset-cover', component: CoverPasswReset },
+    { path: '/auth-lockscreen-basic', component: BasicLockScreen },
+    { path: '/auth-lockscreen-cover', component: CoverLockScreen },
+    { path: '/auth-logout-basic', component: BasicLogout },
+    { path: '/auth-logout-cover', component: CoverLogout },
+    { path: '/auth-success-msg-basic', component: BasicSuccessMsg },
+    { path: '/auth-success-msg-cover', component: CoverSuccessMsg },
+    { path: '/auth-twostep-basic', component: BasicTwosVerify },
+    { path: '/auth-twostep-cover', component: CoverTwosVerify },
+    { path: '/auth-404-basic', component: Basic404 },
+    { path: '/auth-404-cover', component: Cover404 },
+    { path: '/auth-404-alt', component: Alt404 },
+    { path: '/auth-500', component: Error500 },
 
-
-  { path: "/auth-pass-change-basic", component: BasicPasswCreate },
-  { path: "/auth-pass-change-cover", component: CoverPasswCreate },
-  { path: "/auth-offline", component: Offlinepage },
-
+    { path: '/auth-pass-change-basic', component: BasicPasswCreate },
+    { path: '/auth-pass-change-cover', component: CoverPasswCreate },
+    { path: '/auth-offline', component: Offlinepage },
 ];
 
 export { authProtectedRoutes, publicRoutes };
