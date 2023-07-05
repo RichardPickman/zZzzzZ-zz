@@ -108,9 +108,6 @@ export const NewTaskForm = ({ id, onClose, updateBoards }) => {
     // Это у нас тут базовый сеттер, который принимает строку в качестве ключа и добавляет его в текущий стейт
     const setValue = (key, value) => setTask({ ...task, [key]: value });
 
-    // Здесь я просто возвращаю массив элементов с типом File, потому что нативный event.target.files возвращает Array Like объект
-    const getImages = event => [...Array.from(event.target.files)];
-
     // ХТМЛ я почти не  менял, единственное что урезал хардкоженное ul -> li дерево с мокнутыми участниками. Так как эндпоинта для получения юзеров у меня нет.
     return (
         <>
